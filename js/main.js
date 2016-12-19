@@ -101,7 +101,7 @@ function doctorsubmit(){
   var docphone = $('#drphone').val();
   var docemail = $('#dremail').val();
   var docspecialty = $('#drspecialty').val();
-  var url = 'http://localhost:3000/blaaaaaaaaaaah/'
+  var url = 'http://localhost:3000/care4kids/doctor'
   $.ajax({
     url: url,
     method: 'PUT',
@@ -126,14 +126,14 @@ function nursesubmit(){
   var nurseemail = $('#nuemail').val();
   var schoolname = $('#nuschoolname').val();
   var schoolphone = $('#nuschoolphone').val();
-  var url = 'http://localhost:3000/blaaaaaaaaaaah/'
+  var url = 'http://localhost:3000/care4kids/faculty'
   $.ajax({
     url: url,
     method: 'PUT',
     data: {
       completed: nursename,
       thisvariable: nursephone,
-      thisvariable: nurseemail,
+      thatvariable: nurseemail,
       thisvariable: schoolname,
       thisvariable: schoolphone
     },
@@ -141,6 +141,6 @@ function nursesubmit(){
       'Authorization': 'Bearer ' + localStorage.getItem('idToken')
     }
   }).done(function () {
-    li.toggleClass('done')
+    console.log("PUT to the DB");
   })
 }
