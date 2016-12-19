@@ -25,10 +25,6 @@ var lock = new Auth0Lock(
     }
   );
 
-
-
-
-
 function pageload(){
   $('#drform, #nurseform, #btn-logout').hide();
 }
@@ -52,7 +48,6 @@ lock.on('authenticated', function (authResult) {
   checktype();
 });
 
-
 function checktype(){
   if (localStorage.emptype === "1"){
     loaddoctor();
@@ -66,13 +61,15 @@ function checktype(){
 function loaddoctor(){
   console.log("Hello Doctor");
   $('#drform').show();
+  $('#btn-logout').show();
 }
 
 function loadnurse(){
   console.log("Hello Nurse");
   $('#nurseform').show();
-}
+  $('#btn-logout').show();
 
+}
 
 function isLoggedIn() {
   if (localStorage.getItem('idToken')) {
