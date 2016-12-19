@@ -28,7 +28,7 @@ var lock = new Auth0Lock(
 
 
 function pageload(){
-  $('#drform, #nurseform').hide();
+  $('#drform, #nurseform, #btn-logout').hide();
 }
 
 lock.on('authenticated', function (authResult) {

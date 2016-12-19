@@ -12,12 +12,14 @@
 
   <body>
     <h1>Care4Kidz My Dude</h1>
-
+    <!-- This is the login section -->
     <div class="container">
       <div class="btn-group">
         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Who is using this thing?
         </button>
+        <button type="button" id="btn-login" class="btn btn-secondary">Log In</button>
+
         <div class="dropdown-menu dropdown-menu-right">
           <button class="dropdown-item" type="button">Doctor</button>
           <button class="dropdown-item" type="button">Nurse</button>
@@ -25,66 +27,61 @@
       </div>
     </div>
 
-    <button type="button" id="btn-login" name="button">Click here to log in</button>
-    <div id="user-info" style="display:none">
-      <h1 id="username"></h1>
-      <button type="button" id="btn-logout" name="button">Logout</button>
-      <ul>
-        <li id="todos"></li>
-      </ul>
-    </div>
-
+    <!-- The doctor form, hidden on start -->
     <div class="container" id="drform">
       <form id="provider">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="name" class="form-control" id="name">
+          <input type="name" class="form-control" id="drname">
         </div>
         <div class="form-group">
           <label for="pwd">Title</label>
-          <input type="password" class="form-control" id="pwd">
+          <input type="password" class="form-control" id="drtitle">
         </div>
         <div class="form-group">
           <label for="pwd">Phone</label>
-          <input type="password" class="form-control" id="pwd">
+          <input type="password" class="form-control" id="drphone">
         </div>
         <div class="form-group">
           <label for="pwd">Email</label>
-          <input type="password" class="form-control" id="pwd">
+          <input type="password" class="form-control" id="dremail">
         </div>
         <div class="form-group">
           <label for="pwd">Specialty</label>
-          <input type="password" class="form-control" id="pwd">
+          <input type="password" class="form-control" id="drspecialty">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
 
+    <!-- The nurseform, hidden on start -->
     <div class="container" id='nurseform'>
       <form id="faulty">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="name" class="form-control" id="name">
+          <input type="name" class="form-control" id="nuname">
         </div>
         <div class="form-group">
           <label for="pwd">Phone</label>
-          <input type="password" class="form-control" id="pwd">
+          <input type="password" class="form-control" id="nuphone">
         </div>
         <div class="form-group">
           <label for="pwd">Email</label>
-          <input type="password" class="form-control" id="pwd">
+          <input type="password" class="form-control" id="nuemail">
         </div>
         <div class="form-group">
           <label for="pwd">School Name</label>
-          <input type="password" class="form-control" id="pwd">
+          <input type="password" class="form-control" id="nuschoolname">
         </div>
         <div class="form-group">
           <label for="pwd">School Phone</label>
-          <input type="password" class="form-control" id="pwd">
+          <input type="password" class="form-control" id="nuschoolphone">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
+
+    <button type="button" id="btn-logout" name="button">Logout</button>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
