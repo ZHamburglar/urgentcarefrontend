@@ -5,12 +5,23 @@ $(document).ready(function() {
     e.preventDefault()
     checkuser();
     lock.show()
-  })
+  });
 
   $('#btn-logout').on('click', function (e) {
     e.preventDefault()
     logout()
-  })
+  });
+
+  $('#drform').on('submit', function (e) {
+    e.preventDefault()
+    doctorsubmit();
+  });
+  $('#nurseform').on('submit', function (e) {
+    e.preventDefault()
+    nursesubmit();
+  });
+
+
 });
 
 var lock = new Auth0Lock(
@@ -82,4 +93,54 @@ function isLoggedIn() {
 function logout() {
   localStorage.removeItem('idToken')
   window.location.href = '/';
+}
+
+function doctorsubmit(){
+  var docname = $('#drname').val();
+  var doctitle = $('#drtitle').val();
+  var docphone = $('#drphone').val();
+  var docemail = $('#dremail').val();
+  var docspecialty = $('#drspecialty').val();
+  var url = 'http://localhost:3000/blaaaaaaaaaaah/'
+  $.ajax({
+    url: url,
+    method: 'PUT',
+    data: {
+      completed: docname,
+      thisvariable: doctitle,
+      thisvariable: docphone,
+      thisvariable: docemail,
+      thisvariable: docspecialty
+    },
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('idToken')
+    }
+  }).done(function () {
+    li.toggleClass('done')
+  })
+}
+
+function nursesubmit(){
+  var nursename = $('#nuname').val();
+  var nursephone = $('#nuphone').val();
+  var nurseemail = $('#nuemail').val();
+  var schoolname = $('#nuschoolname').val();
+  var schoolphone = $('#nuschoolphone').val();
+  var url = 'http://localhost:3000/blaaaaaaaaaaah/'
+  $.ajax({
+    url: url,
+    method: 'PUT',
+    data: {
+      completed: nursename,
+      thisvariable: nursephone,
+      thisvariable: nurseemail,
+      thisvariable: schoolname,
+      thisvariable: schoolphone
+    },
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('idToken')
+    }
+  }).done(function () {
+    li.toggleClass('done')
+  })
 }
