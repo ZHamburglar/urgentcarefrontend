@@ -31,17 +31,26 @@ function pageload(){
   $('#drform, #nurseform, #btn-logout').hide();
 }
 
+
+
 lock.on('authenticated', function (authResult) {
   console.log('authResult', authResult);
   localStorage.setItem('idToken', authResult.idToken)
   showProfile();
   $('#drform, #nurseform').show();
   $('#userselect').hide();
+  console.log();
+  var checkperson = $('#sel1 option:selected').val();
+  checkuser(checkperson);
+});
 
-
-})
-
-
+function checkuser(checkperson){
+  if (checkperson === 1){
+    alert('Hello')
+  } else {
+    alert('goodbye')
+  }
+}
 
 function isLoggedIn() {
   if (localStorage.getItem('idToken')) {
@@ -57,7 +66,6 @@ function logout() {
 }
 
 function showProfile(){
-  console.log('hello');
   $('#btn-login').hide()
   $('#user-info').show()
   lock.getProfile(localStorage.getItem('idToken'), function(error, profile){

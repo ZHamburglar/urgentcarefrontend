@@ -15,11 +15,14 @@
     <!-- This is the login section -->
     <div class="container">
       <div class="btn-group">
-        <button type="button" id="userselect" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Who is using this thing?
-        </button>
+        <div class="form-group">
+          <label for="sel1">Who is using this?:</label>
+          <select class="form-control" id="sel1">
+            <option value='1'>Doctor</option>
+            <option value='2'>Nurse</option>
+          </select>
+        </div>
         <button type="button" id="btn-login" class="btn btn-secondary">Log In</button>
-
         <div class="dropdown-menu dropdown-menu-right">
           <button class="dropdown-item" type="button">Doctor</button>
           <button class="dropdown-item" type="button">Nurse</button>
