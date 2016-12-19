@@ -4,48 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <title>Auth0 Stuff</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="./css/style.css" charset="utf-8"></script>
+    <title>Care 4 Kidz</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <script src="./js/main.js" charset="utf-8"></script>
-    <style media="screen">
-      .done { text-decoration: line-through; }</style>
   </head>
-
 
   <body>
     <h1>Care4Kidz My Dude</h1>
 
-    <div class="btn-group">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Who is using this thing?
-      </button>
-      <div class="dropdown-menu dropdown-menu-right">
-        <button class="dropdown-item" type="button">Doctor</button>
-        <button class="dropdown-item" type="button">Nurse</button>
-
+    <div class="container">
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Who is using this thing?
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button">Doctor</button>
+          <button class="dropdown-item" type="button">Nurse</button>
+        </div>
       </div>
     </div>
-    
-    <form>
-      <div class="form-group">
-        <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-      </div>
-      <div class="form-group">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox">
-          Remember me</label>
-      </div>
-    </form>
 
     <button type="button" id="btn-login" name="button">Click here to log in</button>
     <div id="user-info" style="display:none">
@@ -56,8 +34,62 @@
       </ul>
     </div>
 
+    <div class="container" id="drform">
+      <form id="provider">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="name" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Title</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Phone</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Email</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Specialty</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
 
+    <div class="container" id='nurseform'>
+      <form id="faulty">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="name" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Phone</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Email</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+          <label for="pwd">School Name</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+          <label for="pwd">School Phone</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./js/main.js" charset="utf-8"></script>
 
   </body>
 </html>
