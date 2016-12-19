@@ -36,7 +36,7 @@ lock.on('authenticated', function (authResult) {
   localStorage.setItem('idToken', authResult.idToken)
   showProfile();
   $('#drform, #nurseform').show();
-  $('#nurseform').show();
+  $('#userselect').hide();
 
 
 })
