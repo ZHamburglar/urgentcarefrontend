@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700|Quicksand:300,400" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon"/>
 
   </head>
 
@@ -17,7 +18,7 @@
       <h1>Care4Kidz My Dude</h1>
     </div>
     <!-- This is the login section -->
-    <div class="container" id="chooseruser">
+    <div class="container signinform" id="chooseruser">
       <div class="btn-group">
         <div class="form-group">
           <label for="sel1">Who is using this?:</label>
@@ -34,6 +35,17 @@
       </div>
     </div>
     <div class="container">
+      <div class="row row-centered" id="navigationbuttons">
+        <div class="col-s-4 col-centered" id="conprovider">
+          <button class="btn btn-primary btn-lg contactprovider" type="button">Contact Provider</button>
+        </div>
+        <div class="col-s-4 col-centered">
+          <button class="btn btn-primary btn-lg childsinneed" type="button">Childs in Need</button>
+        </div>
+        <div class="col-s-4 col-centered">
+          <button class="btn btn-primary btn-lg profileinfo" id="profileinfo" type="button">Profile Info</button>
+        </div>
+      </div>
       <!-- The doctor form, hidden on start -->
       <div class=".col-md-6" id="drform">
         <form id="provider">
@@ -95,6 +107,7 @@
       <div class=".col-md-6" id="chatbox">
         <img src="http://placehold.it/450x650">
       </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

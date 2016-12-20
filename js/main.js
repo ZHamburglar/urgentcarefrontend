@@ -20,6 +20,14 @@ $(document).ready(function() {
     e.preventDefault()
     nursesubmit();
   });
+  $('#profileinfo').on('click', function (e) {
+    e.preventDefault()
+    loadProfile();
+  });
+  $('#childsinneed').on('click', function (e) {
+    e.preventDefault()
+    showChildsInNeed();
+  });
 
 
 });
@@ -37,7 +45,7 @@ var lock = new Auth0Lock(
   );
 
 function pageload(){
-  $('#drform, #nurseform, #btn-logout, #chatbox').hide();
+  $('#drform, #nurseform, #btn-logout, #chatbox, #navigationbuttons').hide();
 }
 
 function checkuser(){
@@ -57,7 +65,7 @@ lock.on('authenticated', function (authResult) {
   $('#chooseruser').empty();
   console.log('this runs');
   checktype();
-  $('#chatbox').show();
+  // $('#chatbox').show();
 });
 
 function checktype(){
@@ -72,15 +80,43 @@ function checktype(){
 
 function loaddoctor(){
   console.log("Hello Doctor");
-  $('#drform').show();
-  $('#btn-logout').show();
+  // $('#drform').show();
+  // $('#btn-logout').show();
+  $('#navigationbuttons').show();
+  $('#conprovider').hide();
+
 }
 
 function loadnurse(){
   console.log("Hello Nurse");
-  $('#nurseform').show();
-  $('#btn-logout').show();
+  // $('#nurseform').show();
+  // $('#btn-logout').show();
+  $('#navigationbuttons').show();
+}
 
+function loadProfile(){
+  // console.log("Hello Nurse");
+  // $('#navigationbuttons').show();
+  if (localStorage.emptype === "1"){
+    $('#drform').show();
+  } else if (localStorage.emptype === "2"){
+    $('#nurseform').show();
+  } else {
+    console.log("This isn't working");
+  }
+}
+
+
+function showChildsInNeed(){
+  // console.log("Hello Nurse");
+  // $('#navigationbuttons').show();
+  if (localStorage.emptype === "1"){
+    $('#chatbox').show();
+  } else if (localStorage.emptype === "2"){
+    $('#chatbox').show();
+  } else {
+    console.log("This isn't working");
+  }
 }
 
 function isLoggedIn() {
