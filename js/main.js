@@ -37,7 +37,7 @@ var lock = new Auth0Lock(
   );
 
 function pageload(){
-  $('#drform, #nurseform, #btn-logout').hide();
+  $('#drform, #nurseform, #btn-logout, #chatbox').hide();
 }
 
 function checkuser(){
@@ -57,6 +57,7 @@ lock.on('authenticated', function (authResult) {
   $('#chooseruser').empty();
   console.log('this runs');
   checktype();
+  $('#chatbox').show();
 });
 
 function checktype(){

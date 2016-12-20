@@ -1,7 +1,22 @@
 body {
-    background-color: powderblue;
-},
+        font-size: 36px;
+        font-family: 'Quicksand', sans-serif;
+        background-color: powderblue;
+      }
+h1{
+  font-size: 48px;
+  color: red;
+}
 
-h1 {
-  color: green;
+.header {
+  background-color: #fffc99;
+  text-align: center;
+  padding: 20px;
+}
+
+#drform {
+  /*font-family: 'Oswald', sans-serif;*/
+  font-size: 48px;
+  font-family: 'Quicksand', sans-serif;
+
 }
