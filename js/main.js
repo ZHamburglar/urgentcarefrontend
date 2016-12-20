@@ -101,16 +101,16 @@ function doctorsubmit(){
   var docphone = $('#drphone').val();
   var docemail = $('#dremail').val();
   var docspecialty = $('#drspecialty').val();
-  var url = 'http://localhost:3000/care4kids/doctor'
+  var url = 'http://localhost:3000/care4kids/doctors/'
   $.ajax({
     url: url,
     method: 'PUT',
     data: {
-      completed: docname,
-      thisvariable: doctitle,
-      thisvariable: docphone,
-      thisvariable: docemail,
-      thisvariable: docspecialty
+      fullName: docname,
+      title: doctitle,
+      phone: docphone,
+      email: docemail,
+      specialty: docspecialty
     },
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('idToken')
@@ -126,16 +126,16 @@ function nursesubmit(){
   var nurseemail = $('#nuemail').val();
   var schoolname = $('#nuschoolname').val();
   var schoolphone = $('#nuschoolphone').val();
-  var url = 'http://localhost:3000/care4kids/faculty'
+  var url = 'http://localhost:3000/care4kids/faculty/'
   $.ajax({
     url: url,
     method: 'PUT',
     data: {
-      completed: nursename,
-      thisvariable: nursephone,
-      thatvariable: nurseemail,
-      thisvariable: schoolname,
-      thisvariable: schoolphone
+      fullName: nursename,
+      phone: nursephone,
+      email: nurseemail,
+      schoolName: schoolname,
+      schoolPhone: schoolphone
     },
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('idToken')
