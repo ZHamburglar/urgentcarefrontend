@@ -104,7 +104,7 @@ function doctorsubmit(){
   var url = 'http://localhost:3000/care4kids/doctors/'
   $.ajax({
     url: url,
-    method: 'PUT',
+    method: 'POST',
     data: {
       fullName: docname,
       title: doctitle,
@@ -129,7 +129,7 @@ function nursesubmit(){
   var url = 'http://localhost:3000/care4kids/faculty/'
   $.ajax({
     url: url,
-    method: 'PUT',
+    method: 'POST',
     data: {
       fullName: nursename,
       phone: nursephone,
