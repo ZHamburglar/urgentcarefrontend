@@ -41,3 +41,13 @@ h1{
     /* inline-block space fix */
     margin-right:-4px;
 }
+
+.button-con {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+
+button {
+  width: 200px;
+}
