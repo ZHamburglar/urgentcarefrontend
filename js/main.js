@@ -106,8 +106,6 @@ function loadProvider(){
   $('#providerform').show();
 }
 
-
-
 function loadnurse(){
   $('#navigationbuttons').show();
 }
