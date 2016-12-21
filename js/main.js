@@ -1,5 +1,9 @@
 $(document).ready(function() {
   pageload();
+  $('#childsinneed').on('click', showChildsInNeed)
+  $('#profileinfo').on('click', loadProfile)
+  $('#btn-logout').on('click', logout)
+
 
   $('#btn-login').on('click', function (e) {
     e.preventDefault()
@@ -7,10 +11,6 @@ $(document).ready(function() {
     lock.show()
   });
 
-  $('#btn-logout').on('click', function (e) {
-    e.preventDefault()
-    logout()
-  });
 
   $('#drform').on('submit', function (e) {
     e.preventDefault()
@@ -19,14 +19,6 @@ $(document).ready(function() {
   $('#nurseform').on('submit', function (e) {
     e.preventDefault()
     nursesubmit();
-  });
-  $('#profileinfo').on('click', function (e) {
-    e.preventDefault()
-    loadProfile();
-  });
-  $('#childsinneed').on('click', function (e) {
-    e.preventDefault()
-    showChildsInNeed();
   });
 
 
@@ -43,6 +35,8 @@ var lock = new Auth0Lock(
       }
     }
   );
+
+
 
 function pageload(){
   $('#drform, #nurseform, #btn-logout, #chatbox, #navigationbuttons').hide();
@@ -63,8 +57,11 @@ lock.on('authenticated', function (authResult) {
   localStorage.setItem('idToken', authResult.idToken)
   $('#userselect').hide();
   $('#chooseruser').empty();
+
   console.log('this runs');
   checktype();
+  $('#btn-logout').show();
+
   // $('#chatbox').show();
 });
 
@@ -78,29 +75,17 @@ function checktype(){
   }
 }
 
-function loaddoctor(){
-  console.log("Hello Doctor");
-  // $('#drform').show();
-  // $('#btn-logout').show();
-  $('#navigationbuttons').show();
-  $('#conprovider').hide();
 
-}
-
-function loadnurse(){
-  console.log("Hello Nurse");
-  // $('#nurseform').show();
-  // $('#btn-logout').show();
-  $('#navigationbuttons').show();
-}
 
 function loadProfile(){
   // console.log("Hello Nurse");
   // $('#navigationbuttons').show();
   if (localStorage.emptype === "1"){
     $('#drform').show();
+    $('#nurseform, #chatbox').hide();
   } else if (localStorage.emptype === "2"){
     $('#nurseform').show();
+    $('#drform, #chatbox').hide();
   } else {
     console.log("This isn't working");
   }
@@ -108,16 +93,29 @@ function loadProfile(){
 
 
 function showChildsInNeed(){
+  console.log("Showing da childrens in need");
   // console.log("Hello Nurse");
   // $('#navigationbuttons').show();
-  if (localStorage.emptype === "1"){
-    $('#chatbox').show();
-  } else if (localStorage.emptype === "2"){
-    $('#chatbox').show();
-  } else {
-    console.log("This isn't working");
-  }
+  $('#drform, #nurseform, #chatbox').hide();
+
+  $('#chatbox').show();
 }
+
+
+
+function loadnurse(){
+  console.log("Hello Nurse");
+  //$('#nurseform').show();
+  //$('#btn-logout').show();
+  $('#navigationbuttons').show();
+}
+
+function loaddoctor(){
+    console.log("Hello Doctor");
+    $('#navigationbuttons').show();
+    // $('#drform').show();
+    // $('#btn-logout').show();
+  }
 
 function isLoggedIn() {
   if (localStorage.getItem('idToken')) {
