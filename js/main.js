@@ -3,6 +3,7 @@ $(document).ready(function() {
   $('#childsinneed').on('click', showChildsInNeed)
   $('#profileinfo').on('click', loadProfile)
   $('#btn-logout').on('click', logout)
+  $('#contactprovider').on('click', loadProvider)
 
 
   $('#btn-login').on('click', function (e) {
@@ -39,7 +40,7 @@ var lock = new Auth0Lock(
 
 
 function pageload(){
-  $('#drform, #nurseform, #btn-logout, #chatbox, #navigationbuttons').hide();
+  $('#drform, #nurseform, #btn-logout, #chatbox, #navigationbuttons, #providerform').hide();
 }
 
 function checkuser(){
@@ -96,25 +97,24 @@ function showChildsInNeed(){
   console.log("Showing da childrens in need");
   // console.log("Hello Nurse");
   // $('#navigationbuttons').show();
-  $('#drform, #nurseform, #chatbox').hide();
-
+  $('#drform, #nurseform, #providerform').hide();
   $('#chatbox').show();
+}
+
+function loadProvider(){
+  $('#drform, #nurseform, #chatbox').hide();
+  $('#providerform').show();
 }
 
 
 
 function loadnurse(){
-  console.log("Hello Nurse");
-  //$('#nurseform').show();
-  //$('#btn-logout').show();
   $('#navigationbuttons').show();
 }
 
 function loaddoctor(){
-    console.log("Hello Doctor");
     $('#navigationbuttons').show();
-    // $('#drform').show();
-    // $('#btn-logout').show();
+    $('#contactprovider').hide();
   }
 
 function isLoggedIn() {
