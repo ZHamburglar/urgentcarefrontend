@@ -21,7 +21,10 @@ $(document).ready(function() {
     e.preventDefault()
     nursesubmit();
   });
-
+  $('#providerform').on('submit', function (e) {
+    e.preventDefault()
+    patientsubmit();
+  });
 
 });
 
@@ -169,6 +172,33 @@ function nursesubmit(){
       email: nurseemail,
       schoolName: schoolname,
       schoolPhone: schoolphone
+    },
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('idToken')
+    }
+  }).done(function () {
+    console.log("PUT to the DB");
+  })
+}
+
+function patientsubmit(){
+  var studentname = $('#stuname').val();
+  var studentdob = $('#studob').val();
+  var studentgender = $('#stugender').val();
+  var studentall = $('#stuall').val();
+  var studentsymp= $('#stusymp').val();
+  var studentcon = $('#stucon').val();
+  var url = 'http://localhost:3000/care4kids/patientrequest/'
+  $.ajax({
+    url: url,
+    method: 'POST',
+    data: {
+      studentName: studentname,
+      studentDob: studentdob,
+      studentGender: studentgender,
+      allergies: studentall,
+      symptoms: studentsymp,
+      contact: studentcon
     },
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('idToken')
