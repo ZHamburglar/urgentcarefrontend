@@ -2,9 +2,7 @@ $(document).ready(function() {
   pageload();
   loadMessages();
   $('#childsinneed').on('click', showChildsInNeed);
-  $('#patientHistory').on('click', showPatientHistory);
-
-  $('body').on('click', '.togglecomplete', userComplete);
+  $('body').on('click', '.togglecomplete',userComplete);
   $('#profileinfo').on('click', loadProfile);
   $('#btn-logout').on('click', logout);
   $('#contactprovider').on('click', loadProvider);
@@ -220,41 +218,6 @@ function loadMessages() {
       insertMessages(datum);
     });
   });
-}
-
-function showPatientHistory(){
-  console.log("Showing patient history");
-  // console.log("Hello Nurse");
-  // $('#navigationbuttons').show();
-  $('#drform, #nurseform, #providerform, #chatbox').hide();
-  $('#patientHistoryList').show();
-  $.ajax({
-    url: 'http://localhost:3000/care4kids/patientrequest/',
-    method: 'GET',
-    headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('idToken')
-    }
-  }).done(function (data) {
-    data.forEach(function (datum) {
-      insertPatientHistory(datum);
-    });
-  });
-}
-
-function insertPatientHistory(datum){
-  var li = '<div id="posties">'+
-              '<div class=row>'+
-                '<div class="col-xs-4">' + "Name: "+ datum.studentName + '</div>'+
-                '<div class="col-xs-2">' + "DOB: "+ datum.studentDob + '</div>'+
-                '<div class="col-xs-2">' + "Gender: " + datum.studentGender + '</div>'+
-                '<div class="col-xs-4">' + "Contact: "+ datum.contact + '</div>'+
-              '</div>'+
-              '<div class=row id="lowerform">'+
-                '<div class="col-xs-3">' + "Allergies: "+ datum.allergies + '</div>'+
-                '<div class="col-xs-8">' + "Symptoms: "+ datum.symptoms + '</div>'+
-              '</div>'+
-            '</div>';
-  $('#patientRecord').append(li);
 }
 
 function insertMessages(message) {
