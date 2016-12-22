@@ -83,7 +83,16 @@ button {
   border: 1px solid black;
 }
 
-#statusimages {
+#statusImages {
   width: 50px;
   height: 50px;
+}
+
+#patientHistoryList {
+  height:400px;
+  width:600px;
+  border:1px solid #ccc;
+  font:16px/26px Georgia, Garamond, Serif;
+  overflow:auto;
+  align-self: center;
 }
