@@ -251,7 +251,6 @@ function completedMessages(message,handdone, pickup){
 }
 
 function userComplete(){
-  console.log("hello");
   var walter = $(this).data('complete');
   console.log(walter);
 }

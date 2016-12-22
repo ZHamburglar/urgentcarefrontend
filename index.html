@@ -46,7 +46,7 @@
           <div id="contactprovider">
             <button class="btn btn-primary btn-lg" type="button">Contact Provider</button>
           </div>
-          <button class="btn btn-primary btn-lg" id="childsinneed" type="button">Childs in Need</button>
+          <button class="btn btn-primary btn-lg" id="childsinneed" type="button">Care Requests</button>
           <button class="btn btn-primary btn-lg" id="profileinfo" type="button">Profile Info</button>
         </div>
       </div>
@@ -78,78 +78,78 @@
             <label for="specialty">Contact</label>
             <input type="text" class="form-control" id="stucon">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-      </div>
-
-      <!-- The doctor form, hidden on start -->
-      <div class="col-md-6 col-md-offset-2" id="drform">
-        <form id="provider">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="drname">
-          </div>
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="drtitle">
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="text" class="form-control" id="drphone">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" id="dremail">
-          </div>
-          <div class="form-group">
-            <label for="specialty">Specialty</label>
-            <input type="text" class="form-control" id="drspecialty">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-      </div>
-
-      <!-- The nurseform, hidden on start -->
-      <div class="col-md-6 col-md-offset-2" id="nurseform">
-        <form id="faculty">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" id="nuname">
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="text" class="form-control" id="nuphone">
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" id="nuemail">
-          </div>
-          <div class="form-group">
-            <label>School Name</label>
-            <input type="text" class="form-control" id="nuschoolname">
-          </div>
-          <div class="form-group">
-            <label>School Phone</label>
-            <input type="text" class="form-control" id="nuschoolphone">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-      </div>
-
-      <!-- The box where all the messages are loaded on the page. -->
-      <div class="col-md-12" id="chatbox">
-        <div id="chat"></div>
-      </div>
-      <div>
-        <div class="btn-group">
-          <button type="button" id="btn-logout" name="button">Logout</button>
-        </div>
-      </div>
+          <button type="submit" class="btn btn-default" value="ADD" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();"/>Submit</button>
+      </form>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="./js/main.js" charset="utf-8"></script>
-  </body>
+    <!-- The doctor form, hidden on start -->
+    <div class="col-md-6 col-md-offset-2" id="drform">
+      <form id="provider">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="drname">
+        </div>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="drtitle">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" class="form-control" id="drphone">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="dremail">
+        </div>
+        <div class="form-group">
+          <label for="specialty">Specialty</label>
+          <input type="text" class="form-control" id="drspecialty">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+
+    <!-- The nurseform, hidden on start -->
+    <div class="col-md-6 col-md-offset-2" id="nurseform">
+      <form id="faculty">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" id="nuname">
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="text" class="form-control" id="nuphone">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="text" class="form-control" id="nuemail">
+        </div>
+        <div class="form-group">
+          <label>School Name</label>
+          <input type="text" class="form-control" id="nuschoolname">
+        </div>
+        <div class="form-group">
+          <label>School Phone</label>
+          <input type="text" class="form-control" id="nuschoolphone">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+
+    <!-- The box where all the messages are loaded on the page. -->
+    <div class="col-md-12" id="chatbox">
+      <div id="chat"></div>
+    </div>
+    <div>
+      <div class="btn-group">
+        <button type="button" id="btn-logout" name="button">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="./js/main.js" charset="utf-8"></script>
+</body>
 </html>
