@@ -1,31 +1,28 @@
 $(document).ready(function() {
   pageload();
-  $('#childsinneed').on('click', showChildsInNeed)
-  $('#profileinfo').on('click', loadProfile)
-  $('#btn-logout').on('click', logout)
-  $('#contactprovider').on('click', loadProvider)
-
+  loadMessages();
+  $('#childsinneed').on('click', showChildsInNeed);
+  $('#profileinfo').on('click', loadProfile);
+  $('#btn-logout').on('click', logout);
+  $('#contactprovider').on('click', loadProvider);
 
   $('#btn-login').on('click', function (e) {
-    e.preventDefault()
+    e.preventDefault();
     checkuser();
-    lock.show()
+    lock.show();
   });
-
-
   $('#drform').on('submit', function (e) {
-    e.preventDefault()
+    e.preventDefault();
     doctorsubmit();
   });
   $('#nurseform').on('submit', function (e) {
-    e.preventDefault()
+    e.preventDefault();
     nursesubmit();
   });
   $('#providerform').on('submit', function (e) {
-    e.preventDefault()
+    e.preventDefault();
     patientsubmit();
   });
-
 });
 
 var lock = new Auth0Lock(
@@ -58,7 +55,7 @@ function checkuser(){
 
 lock.on('authenticated', function (authResult) {
   console.log('authResult', authResult);
-  localStorage.setItem('idToken', authResult.idToken)
+  localStorage.setItem('idToken', authResult.idToken);
   $('#userselect').hide();
   $('#chooseruser').empty();
 
@@ -127,7 +124,7 @@ function isLoggedIn() {
 }
 
 function logout() {
-  localStorage.removeItem('idToken')
+  localStorage.removeItem('idToken');
   window.location.href = '/';
 }
 
@@ -137,7 +134,7 @@ function doctorsubmit(){
   var docphone = $('#drphone').val();
   var docemail = $('#dremail').val();
   var docspecialty = $('#drspecialty').val();
-  var url = 'http://localhost:3000/care4kids/doctors/'
+  var url = 'http://localhost:3000/care4kids/doctors/';
   $.ajax({
     url: url,
     method: 'POST',
@@ -152,8 +149,8 @@ function doctorsubmit(){
       'Authorization': 'Bearer ' + localStorage.getItem('idToken')
     }
   }).done(function () {
-    li.toggleClass('done')
-  })
+    li.toggleClass('done');
+  });
 }
 
 function nursesubmit(){
@@ -162,7 +159,7 @@ function nursesubmit(){
   var nurseemail = $('#nuemail').val();
   var schoolname = $('#nuschoolname').val();
   var schoolphone = $('#nuschoolphone').val();
-  var url = 'http://localhost:3000/care4kids/faculty/'
+  var url = 'http://localhost:3000/care4kids/faculty/';
   $.ajax({
     url: url,
     method: 'POST',
@@ -178,7 +175,7 @@ function nursesubmit(){
     }
   }).done(function () {
     console.log("PUT to the DB");
-  })
+  });
 }
 
 function patientsubmit(){
@@ -188,7 +185,7 @@ function patientsubmit(){
   var studentall = $('#stuall').val();
   var studentsymp= $('#stusymp').val();
   var studentcon = $('#stucon').val();
-  var url = 'http://localhost:3000/care4kids/patientrequest/'
+  var url = 'http://localhost:3000/care4kids/patientrequest/';
   $.ajax({
     url: url,
     method: 'POST',
@@ -205,5 +202,35 @@ function patientsubmit(){
     }
   }).done(function () {
     console.log("PUT to the DB");
-  })
+  });
+}
+
+function loadMessages() {
+  $.ajax({
+    url: 'http://localhost:3000/care4kids/patientrequest/',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('idToken')
+    }
+  }).done(function (data) {
+    data.forEach(function (datum) {
+      console.log(datum);
+      insertMessages(datum);
+    });
+  });
+}
+
+function insertMessages(message) {
+  var li = $('<li />');
+  li.text(message.studentName + ' ' +message.studentDob +" "+ message.studentGender+ " "+message.contact+ " " + message.allergies + " "+ message.symptoms);
+  li.data('id', message._id);
+  if (message.completed) li.addClass('done');
+  //
+  // var deleteLink = $('<a />');
+  // deleteLink.text('Delete');
+  // deleteLink.attr('href', 'http://localhost:3000/todos/' + todo._id);
+  // deleteLink.addClass('delete-link');
+  //
+  // li.append(deleteLink);
+
+  $('#chat').append(li);
 }
