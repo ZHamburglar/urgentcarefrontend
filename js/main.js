@@ -2,6 +2,7 @@ $(document).ready(function() {
   pageload();
   loadMessages();
   $('#childsinneed').on('click', showChildsInNeed);
+  $('#statusimages').on('click', userComplete);
   $('#profileinfo').on('click', loadProfile);
   $('#btn-logout').on('click', logout);
   $('#contactprovider').on('click', loadProvider);
@@ -245,4 +246,8 @@ function completedMessages(message,handdone){
               '</div>'+
             '</div>';
   $('#chat').append(li);
+}
+
+function userComplete() {
+  console.log("Hello there");
 }
