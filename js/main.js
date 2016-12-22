@@ -5,7 +5,6 @@ $(document).ready(function() {
   $('#profileinfo').on('click', loadProfile);
   $('#btn-logout').on('click', logout);
   $('#contactprovider').on('click', loadProvider);
-
   $('#btn-login').on('click', function (e) {
     e.preventDefault();
     checkuser();
@@ -220,11 +219,23 @@ function loadMessages() {
 }
 
 function insertMessages(message) {
-  var li = $('<li />');
-  li.text(message.studentName + ' ' +message.studentDob +" "+ message.studentGender+ " "+message.contact+ " " + message.allergies + " "+ message.symptoms);
-  li.data('id', message._id);
-  if (message.completed) li.addClass('done');
-  //
+  var li = '<div id="posties">'+
+              '<div class=row>'+
+                '<div class="col-xs-4">' + "Name: "+ message.studentName + '</div>'+
+                '<div class="col-xs-2">' + "DOB: "+ message.studentDob + '</div>'+
+                '<div class="col-xs-2">' + "Gender: " + message.studentGender + '</div>'+
+                '<div class="col-xs-4">' + "Contact: "+ message.contact + '</div>'+
+              '</div>'+
+              '<div class=row id="lowerform">'+
+                '<div class="col-xs-1" id="togglecomplete">'+ '</div>'+
+                '<div class="col-xs-4">' + "Allergies: "+ message.allergies + '</div>'+
+                '<div class="col-xs-7">' + "Symptoms: "+ message.symptoms + '</div>'+
+              '</div>'+
+            '</div>';
+  // li.text(message.studentName + ' ' +message.studentDob +" "+ message.studentGender+ " "+message.contact+ " " + message.allergies + " "+ message.symptoms);
+  // li.data('id', message._id);
+  // if (message.completed) li.addClass('done');
+  // //
   // var deleteLink = $('<a />');
   // deleteLink.text('Delete');
   // deleteLink.attr('href', 'http://localhost:3000/todos/' + todo._id);
