@@ -85,7 +85,7 @@ function loadProfile(){
     $('#nurseform, #chatbox').hide();
   } else if (localStorage.emptype === "2"){
     $('#nurseform').show();
-    $('#drform, #chatbox').hide();
+    $('#drform, #chatbox, #providerform').hide();
   } else {
     console.log("This isn't working");
   }
@@ -194,7 +194,8 @@ function patientsubmit(){
       studentGender: studentgender,
       allergies: studentall,
       symptoms: studentsymp,
-      contact: studentcon
+      contact: studentcon,
+      completed: false
     },
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('idToken')
@@ -219,6 +220,17 @@ function loadMessages() {
 }
 
 function insertMessages(message) {
+  if (message.completed ===false) {
+    console.log("This is not done");
+    var handdone = '../images/statusattention.png';
+    completedMessages(message, handdone);
+  } else {
+    var handdone = '../images/statuscompleted.png';
+    completedMessages(message, handdone);
+  }
+}
+
+function completedMessages(message,handdone){
   var li = '<div id="posties">'+
               '<div class=row>'+
                 '<div class="col-xs-4">' + "Name: "+ message.studentName + '</div>'+
@@ -227,21 +239,10 @@ function insertMessages(message) {
                 '<div class="col-xs-4">' + "Contact: "+ message.contact + '</div>'+
               '</div>'+
               '<div class=row id="lowerform">'+
-                '<div class="col-xs-1" id="togglecomplete">'+ '</div>'+
-                '<div class="col-xs-4">' + "Allergies: "+ message.allergies + '</div>'+
-                '<div class="col-xs-7">' + "Symptoms: "+ message.symptoms + '</div>'+
+                '<div class="col-xs-1" id="togglecomplete">'+ '<img src="'+ handdone +'" height="250" id="statusimages" alt="" />' +'</div>'+
+                '<div class="col-xs-3">' + "Allergies: "+ message.allergies + '</div>'+
+                '<div class="col-xs-8">' + "Symptoms: "+ message.symptoms + '</div>'+
               '</div>'+
             '</div>';
-  // li.text(message.studentName + ' ' +message.studentDob +" "+ message.studentGender+ " "+message.contact+ " " + message.allergies + " "+ message.symptoms);
-  // li.data('id', message._id);
-  // if (message.completed) li.addClass('done');
-  // //
-  // var deleteLink = $('<a />');
-  // deleteLink.text('Delete');
-  // deleteLink.attr('href', 'http://localhost:3000/todos/' + todo._id);
-  // deleteLink.addClass('delete-link');
-  //
-  // li.append(deleteLink);
-
   $('#chat').append(li);
 }
