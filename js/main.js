@@ -2,7 +2,7 @@ $(document).ready(function() {
   pageload();
   loadMessages();
   $('#childsinneed').on('click', showChildsInNeed);
-  $('body').on('click', '.togglecomplete',userComplete);
+  $('body').on('click', '.togglecomplete', userComplete);
   $('#profileinfo').on('click', loadProfile);
   $('#btn-logout').on('click', logout);
   $('#contactprovider').on('click', loadProvider);
