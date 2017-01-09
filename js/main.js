@@ -134,7 +134,7 @@ function doctorsubmit(){
   var docphone = $('#drphone').val();
   var docemail = $('#dremail').val();
   var docspecialty = $('#drspecialty').val();
-  var url = 'http://localhost:3000/care4kids/doctors/';
+  var url = 'https://care4kids.herokuapp.com/care4kids/doctors/';
   $.ajax({
     url: url,
     method: 'POST',
@@ -159,7 +159,7 @@ function nursesubmit(){
   var nurseemail = $('#nuemail').val();
   var schoolname = $('#nuschoolname').val();
   var schoolphone = $('#nuschoolphone').val();
-  var url = 'http://localhost:3000/care4kids/faculty/';
+  var url = 'https://care4kids.herokuapp.com/care4kids/faculty/';
   $.ajax({
     url: url,
     method: 'POST',
@@ -185,7 +185,7 @@ function patientsubmit(){
   var studentall = $('#stuall').val();
   var studentsymp= $('#stusymp').val();
   var studentcon = $('#stucon').val();
-  var url = 'http://localhost:3000/care4kids/patientrequest/';
+  var url = 'https://care4kids.herokuapp.com/care4kids/patientrequest/';
   $.ajax({
     url: url,
     method: 'POST',
@@ -208,7 +208,7 @@ function patientsubmit(){
 
 function loadMessages() {
   $.ajax({
-    url: 'http://localhost:3000/care4kids/patientrequest/',
+    url: 'https://care4kids.herokuapp.com/care4kids/patientrequest/',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('idToken')
     }
